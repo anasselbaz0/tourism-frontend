@@ -1,0 +1,105 @@
+<app-welcome></app-welcome>
+
+<div id="search">
+        <div class="container">
+            <div class="row d-flex justify-content-center align-items-center">
+                <div class="box col-md-12">
+                    <div class="title">Search</div>
+                    <div class="content">
+                        <form [formGroup]="searchForm" (ngSubmit)="onSubmit()">
+                            <mat-form-field appearance="outline" class="w-100 mb-4">
+                                <mat-label>Key word</mat-label>
+                                <input matInput placeholder="Key word" name="keyword" formControlName="keyword">
+                                <mat-hint>Name of a city, country, ...</mat-hint>
+                            </mat-form-field>
+                            <mat-expansion-panel class="w-100 mb-4">
+                                <mat-expansion-panel-header>
+                                    <mat-panel-title>
+                                        More filters
+                                    </mat-panel-title>
+                                    <!-- <mat-panel-description>
+                                        Type your name and age
+                                    </mat-panel-description> -->
+                                </mat-expansion-panel-header>
+                                <mat-list class="w-100">
+                                    <mat-list-item class="w-100 mt-4 mb-4">
+                                        <div class="w-100 filter">
+                                            <mat-form-field appearance="legacy" class="w-100">
+                                                <mat-label>Continent</mat-label>
+                                                <mat-select formControlName="continent">
+                                                    <mat-option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item class="w-100 mt-4 mb-4">
+                                        <div class="w-100 filter">
+                                            <mat-form-field appearance="legacy" class="w-100">
+                                                <mat-label>Country</mat-label>
+                                                <mat-select formControlName="country">
+                                                    <mat-option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </mat-list-item>
+                                    <mat-divider></mat-divider>
+                                    <mat-list-item class="w-100 mt-4 mb-4">
+                                        <div class="w-100 filter">
+                                            <mat-form-field appearance="legacy" class="w-100">
+                                                <mat-label>City</mat-label>
+                                                <mat-select formControlName="city">
+                                                    <mat-option *ngFor="let city of cities" [value]="city.name">{{ city.name }}</mat-option>
+                                                </mat-select>
+                                            </mat-form-field>
+                                        </div>
+                                    </mat-list-item>
+                                </mat-list>
+                            </mat-expansion-panel>
+                            <div class="d-flex justify-content-center">
+                                <button mat-raised-button color="primary" type="submit">SEARCH</button>
+                            </div> 
+                        </form>
+                    </div>
+
+
+
+                    <div class="content">
+                        <div class="row">
+                            <div class="col-md-3 mb-4" *ngFor="let city of resultCities">
+                                <mat-card class="w-100">
+                                    <mat-card-header >
+                                        <div mat-card-avatar class="rounded-circle">
+                                            <img class="img-fluid rounded-circle" 
+                                                src="https://cdn1.iconfinder.com/data/icons/rounded-square-national-flags/512/MOROCCO-512.png">
+                                        </div>
+                                        <mat-card-title class="w-100">{{ city.name }}</mat-card-title>
+                                        <mat-card-subtitle class="w-100">City</mat-card-subtitle>
+                                    </mat-card-header>
+                                    <mat-card-content>
+                                            <div><h5>{{ city.name }}</h5></div>
+                                            <mat-divider></mat-divider>
+                                            <div>Population: {{ city.population }}</div>
+                                            <mat-divider></mat-divider>
+                                            <div>Security Level: {{ city.securityClassification }}</div>
+                                            <mat-divider></mat-divider>
+                                            <div>Tourism Level: {{ city.tourismClassification }}</div>
+                                            <mat-divider></mat-divider>
+                                            <div>ZIP Code: {{ city.zipCode }}</div>
+                                            <mat-divider></mat-divider>
+                                            <div>Website: {{ city.webSite }}</div>
+                                    </mat-card-content>
+                                    <mat-card-actions class="text-center">
+                                        <button mat-raised-button color="primary">VIEW</button>
+                                    </mat-card-actions>
+                                </mat-card>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+    

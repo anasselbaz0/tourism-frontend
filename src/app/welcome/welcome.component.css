@@ -1,0 +1,9 @@
+#welcome {
+    min-height: 10vh;
+    background-color: #222;
+    color: #fff;
+}
+
+h1 {
+    padding: 1rem;
+}
